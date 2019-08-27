@@ -1,0 +1,192 @@
+{
+int $Cdistiance = -5;
+int $CD2 = -5;
+
+
+string $obj [];
+string $objects [];
+
+
+
+$obj = `polyCube -w 11 -d 7`;
+move -r 0.569674 0 0 ;
+select -r pCube1.f[1] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 0 -pvy 0.5 -pvz 0 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCube1.f[1];
+scale -r -p 0cm 0.5cm 0cm 0.781925 0.781925 0.781925 ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 0 -pvy 0.5 -pvz 0 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCube1.f[1];
+setAttr "polyExtrudeFace2.localTranslate" -type double3 0 0 0.635802 ;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCube -w 11 -d 7`;
+setAttr "polyCube2.subdivisionsWidth" 3;
+setAttr "polyCube2.subdivisionsDepth" 3;
+move -r 0.569674 0 0 ;
+move -r 0 5.727132 0 ;
+select -r pCube2.vtx[19] ;
+select -tgl pCube2.vtx[7] ;
+select -tgl pCube2.vtx[4] ;
+select -tgl pCube2.vtx[16] ;
+scale -r -p 0.569674cm 6.227132cm 0cm 0.777845 0.777845 0.777845 ;
+
+select -r pCube2.f[6] ;
+select -tgl pCube2.f[3] ;
+select -tgl pCube2.f[4] ;
+select -tgl pCube2.f[7] ;
+select -tgl pCube2.f[10] ;
+select -tgl pCube2.f[9] ;
+select -tgl pCube2.f[11] ;
+select -tgl pCube2.f[8] ;
+select -tgl pCube2.f[5] ;
+hilite pCube2.f[3:11] ;
+selectMode -component ;
+select -r pCube2.f[3:11] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 0.569674 -pvy 6.227132 -pvz 0 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCube2.f[3:11];
+scale -r -p 0.569674cm 6.227132cm 0cm 0.861734 0.861734 0.861734 ;
+select -r pCube2.f[3:11] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 0.569674 -pvy 6.227132 -pvz 0 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCube2.f[3:11];
+setAttr "polyExtrudeFace4.localTranslate" -type double3 0 0 0.292029 ;
+select -r pCube2.f[3:11] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 0.569674 -pvy 6.519160666 -pvz 0 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCube2.f[3:11];
+scale -r -p 0.569674cm 6.519161cm 0cm 0.874326 0.874326 0.874326 ;
+select -r pCube2.f[3:11] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 0.569674 -pvy 6.519160666 -pvz 0 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCube2.f[3:11];
+setAttr "polyExtrudeFace6.localTranslate" -type double3 0 0 0.220611 ;
+select -r pCube2.f[3:11] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 0.569674 -pvy 6.739771284 -pvz 0 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCube2.f[3:11];
+scale -r -p 0.569674cm 6.739771cm 0cm 0.876736 0.876736 0.876736 ;
+select -r pCube2.f[3:11] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 0.569674 -pvy 6.739771284 -pvz 0 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCube2.f[3:11];
+setAttr "polyExtrudeFace8.localTranslate" -type double3 0 0 0.195759 ;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $Cdistiance 2.861358 3.109094 ;
+move -r 10.301202 0 0 ;
+$Cdistiance++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $Cdistiance 2.861358 3.109094 ;
+$Cdistiance++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $Cdistiance 2.861358 3.109094 ;
+$Cdistiance++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $Cdistiance 2.861358 3.109094 ;
+$Cdistiance++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $Cdistiance 2.861358 3.109094 ;
+$Cdistiance++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $Cdistiance 2.861358 3.109094 ;
+$Cdistiance++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $Cdistiance 2.861358 3.109094 ;
+$Cdistiance++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $Cdistiance 2.861358 3.109094 ;
+$Cdistiance++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $Cdistiance 2.861358 3.109094 ;
+$Cdistiance++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $Cdistiance 2.861358 3.109094 ;
+$Cdistiance++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $CD2 2.796274 -3.125247 ;
+move -r 10.303697 0 0 ;
+$CD2++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $CD2 2.796274 -3.125247 ;
+$CD2++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $CD2 2.796274 -3.125247 ;
+$CD2++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $CD2 2.796274 -3.125247 ;
+$CD2++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $CD2 2.796274 -3.125247 ;
+$CD2++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $CD2 2.796274 -3.125247 ;
+$CD2++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $CD2 2.796274 -3.125247 ;
+$CD2++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $CD2 2.796274 -3.125247 ;
+$CD2++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $CD2 2.796274 -3.125247 ;
+$CD2++;
+$objects[size($objects)] = $obj[0];
+
+$obj = `polyCylinder -r .3 -h 5`;
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+move -r $CD2 2.796274 -3.125247 ;
+$CD2++;
+$objects[size($objects)] = $obj[0];
+
+
+group -em -name "Building";
+parent $objects Building;
+}
+
+polyUnite;
+DeleteHistory;
+doGroup 0 1 1;
+rename "Building";
