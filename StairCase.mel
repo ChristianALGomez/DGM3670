@@ -1,0 +1,122 @@
+{
+int $hight = 1;
+int $direction = 5;
+int $width = 7;
+int $rotation = -15;
+string $obj [];
+string $objects [];
+
+$obj = `polyCube -w $width -h $hight -d $direction`;
+$objects [size($objects)] = $obj[0];
+
+for( $i=0; $i<100; ++$i )
+{
+$obj = `duplicate -rr ($objects[size($objects) -1])`;
+$objects [size($objects)] = $obj[0];
+move -r -os -wd 0 1.010842 0 ;
+move -r -os -wd 0 0 3.747234 ;
+rotate -r -os -fo 0 29.438878 0 ;
+move -r -os -wd 1.397793 0 0 ;
+move -r -os -wd -1.292003 0 0 ;
+move -r -os -wd 0 0 1.537523 ;
+rotate -r -os -fo 0 -17.811271 0 ;
+move -r -os -wd -0.332789 0 -1.004721 ;
+}
+polyUnite $objects;
+DeleteHistory;
+rename "Stairs";
+}
+
+{
+int $hight = 1;
+int $direction = 5;
+int $width = 7;
+int $rotation = -15;
+string $obj [];
+string $objects [];
+
+$obj = `polyCube -w $width -h $hight -d $direction`;
+$objects [size($objects)] = $obj[0];
+
+for( $i=0; $i<100; ++$i )
+{
+$obj = `duplicate -rr ($objects[size($objects) -1])`;
+$objects [size($objects)] = $obj[0];
+move -r -os -wd 0 1.010842 0 ;
+move -r -os -wd 0 0 3.747234 ;
+rotate -r -os -fo 0 29.438878 0 ;
+move -r -os -wd 1.397793 0 0 ;
+move -r -os -wd -1.292003 0 0 ;
+move -r -os -wd 0 0 1.537523 ;
+rotate -r -os -fo 0 -17.811271 0 ;
+move -r -os -wd -0.332789 0 -1.004721 ;
+}
+polyUnite $objects;
+DeleteHistory;
+rename "Stairs2";
+}
+move -r 0 6.867392 0 ;
+
+{
+string $obj [];
+string $objects [];
+    
+$obj = `polyCylinder -r 1 -h 2.5 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1`;
+$objects [size($objects)] = $obj[0];
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+setAttr "polyCylinder1.height" 5;
+setAttr "polyCylinder1.radius" .5;
+move -r 0 2.99349 0 ;
+move -r -2.909822 0 0 ;
+
+
+
+
+for( $i=0; $i<100; ++$i )
+{
+$obj = `duplicate -rr ($objects[size($objects) -1])`;
+$objects [size($objects)] = $obj[0];
+move -r -os -wd 0 1.02 3;
+rotate -r -os -fo 0 29.438878 0 ;
+move -r -os -wd .15 0 1.5 ;
+rotate -r -os -fo 0 -17.811271 0 ;
+}
+polyUnite $objects;
+DeleteHistory;
+rename "Pillars";
+}
+
+{
+string $obj [];
+string $objects [];
+    
+$obj = `polyCylinder -r 1 -h 5 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1`;
+$objects [size($objects)] = $obj[0];
+setAttr "polyCylinder1.subdivisionsCaps" 0;
+setAttr "polyCylinder1.height" 7;
+setAttr "polyCylinder1.radius" .5;
+move -r 0 3.033619 0 ;
+move -r -2.929612 0 0 ;
+
+
+for( $i=0; $i<100; ++$i )
+{
+$obj = `duplicate -rr ($objects[size($objects) -1])`;
+$objects [size($objects)] = $obj[0];
+move -r -os -wd 0 1.02 3;
+rotate -r -os -fo 0 29.438878 0 ;
+move -r -os -wd .15 0 1.5 ;
+rotate -r -os -fo 0 -17.811271 0 ;
+}
+polyUnite $objects;
+rotate -r -os -fo 0 -9.456869 0 ;
+DeleteHistory;
+rename "Pillar2";
+}
+
+select -r Pillars Pillar2 Stairs Stairs2;
+polyUnite;
+DeleteHistory;
+rename "StairCase";
+doGroup 0 1 1;
+rename "Geo";
