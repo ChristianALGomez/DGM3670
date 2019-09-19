@@ -1,0 +1,27 @@
+
+
+{ 
+string $allObjs[] = `ls-sl`;
+string $buffer[];
+
+$name ="R_OBJ_###_Geo";
+$Tokens = `tokenize $name "#" $buffer`;
+$prefix = $buffer[0];
+$sufix = $buffer[1];
+
+for($i=0;$i<size($allObjs);$i++)
+{
+    $number = $i + 1;
+    
+    string $FullName = ($prefix + 0 +$number + $sufix);
+    
+    if ($i < 10){
+        $FullName = ($prefix + 0 +$number + $sufix);
+    }
+    else{
+        $FullName = ($prefix +$number + $sufix);
+    }
+    rename $allObjs[$i] $FullName;
+}
+}
+
