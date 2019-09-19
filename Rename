@@ -1,27 +1,52 @@
-
-
+proc Rename(string $name)
+{
 { 
 string $allObjs[] = `ls-sl`;
 string $buffer[];
 
-$name ="R_OBJ_###_Geo";
+//string $tokensize[] = `$prefix + $sufix`;
+//string $oldname[] = `$name`;
+
+//string $name ="R_OBJ_###_Geo";
 $Tokens = `tokenize $name "#" $buffer`;
-$prefix = $buffer[0];
-$sufix = $buffer[1];
+string $prefix = $buffer[0];
+string $sufix = $buffer[1];
+
+$preSize= size($prefix);
+$sufSize= size($sufix);
+$oldnameSize= size($name);
+$padding = ($oldnameSize - $sufSize - $preSize);
+print $padding;
+
+    string $oldName = $name;
+
 
 for($i=0;$i<size($allObjs);$i++)
 {
-    $number = $i + 1;
-    
-    string $FullName = ($prefix + 0 +$number + $sufix);
-    
-    if ($i < 10){
-        $FullName = ($prefix + 0 +$number + $sufix);
-    }
-    else{
-        $FullName = ($prefix +$number + $sufix);
-    }
-    rename $allObjs[$i] $FullName;
-}
-}
 
+    $number = $i + 1;
+    //int $n = $i + $number;
+    string $padStr = "";
+    
+    for ($p=0; $p < $padding; ++$p)
+    {
+        if ($number < pow(10, $p) )
+            $padStr += "0";
+    }
+    string $FullName = ($prefix + $padStr +$number + $sufix);
+       
+    
+    //if ($i < 10){
+      //  $FullName = ($prefix + 0 +$number + $sufix);
+   // }
+    //else{
+        //$FullName = ($prefix +$number + $sufix);
+    //}
+    rename $allObjs[$i] $FullName;
+    
+    //string $newName = $FullName;
+
+}
+}
+}
+Rename("R_Leg_##_Geo")
