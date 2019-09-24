@@ -1,0 +1,24 @@
+getAttr ---- get attrabute
+
+setAttr ---- set attrabute
+
+xform ---- almost the same as the first two
+
+boundingBox (xform Flag)
+
+midpoint formula = (x1 + x2 , y1 + y2)
+                    -------   -------
+                       2         2
+
+//select objects
+$sel[] = `sl -ls`;
+$seList[];
+
+//find center put into an array
+xform -q -bb = $sels;
+
+//create locator at center of objects
+
+//create locatar at center of each selected objects
+
+// match pivot of locator with selected objects
