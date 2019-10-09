@@ -1,0 +1,139 @@
+proc float Add(float $nums[])
+{
+	$sum = 0;
+	for($i=0; $i < size($nums); $i++)
+	{
+		$sum = $sum + $nums[$i];
+	}
+	return $sum;
+}
+Add({1, 10, 2});
+
+proc float Sub(float $nums[])
+{
+	$sum = $nums[0];
+	for($i=1; $i < size($nums); $i++)
+	{
+		$sum = $sum - $nums[$i];
+	}
+	return $sum;
+}
+Sub({1, 10, 2});
+
+proc float Div(float $nums[])
+{
+	$sum = $nums[0];
+	for($i=1; $i < size($nums); $i++)
+	{
+		$sum = $sum / $nums[$i];
+	}
+	return $sum;
+}
+Div({10, 2, 2});
+
+proc float Tim(float $nums[])
+{
+	$sum = $nums[0];
+	for($i=1; $i < size($nums); $i++)
+	{
+		$sum = $sum * $nums[$i];
+	}
+	return $sum;
+}
+Tim({10, 2, 2});
+
+proc float Pow(float $nums[])
+{
+	$sum = $nums[0];
+	for($i=1; $i < size($nums); $i++)
+	{
+		$sum = pow ($sum, $nums[$i]);
+	}
+	return $sum;
+}
+Pow({10, 2});
+
+proc float Mean(float $nums[])
+{
+	$sum = $nums[0];
+	for($i=1; $i < size($nums); $i++)
+	{
+		$sum = pow ($sum, $nums[$i]);
+	}
+	return $sum;
+}
+Mean({10, 2});
+
+proc Mode(int $nums[])
+{
+	int $numArray[] = `sort $nums`;
+	
+	int $num = $nums[0];
+	int $mode = $num;
+	
+	int $frequency = 1;
+	int $freqMode = 1;
+	
+		for ($i = 1; $i < size($numArray); $i++)
+		{
+			if ($numArray[$i] == $num)
+			{
+				$frequency++;
+			}
+			
+			else
+			{
+				if ($frequency > $freqMode)
+				{
+					$freqMode = $frequency;
+					$mode = $numArray[$i];
+				}
+				
+				$frequency = 1;
+				$num = $numArray[$i];
+				
+			}
+		}
+		
+		print $mode;
+}
+
+Mode({1, 2, 1, 4, 5});
+
+proc Med(float $nums[])
+{
+	float $numOrder[] = `sort $nums`;
+	
+	int $size = size($numOrder);
+	float $median;
+	
+	if ($size / 2 !=0)
+	{
+		int $temp = floor($size/2);
+		$median = $numOrder[$temp];
+	}
+	
+	if ($size % 2 ==0)
+	{
+		int $temp = ($size/2);
+		int $medianAlt = ($temp - 1);
+		
+		$median = ($numOrder[$temp] + $numOrder[$medianAlt]);
+		$median = $median/2;
+	}
+	print $median;
+}
+
+Med({1, 2, 3, 4, 5, 6, 7, 8});
+
+proc float Mean(float $nums[])
+{
+	$sum = 0;
+	int $size = size ($nums);
+	for($i=0; $i < size($nums); $i++)
+	{
+		$sum = ($sum + $nums[$i]);
+	}
+	return $sum / $size;
+}
+Mean({2, 7, 9});
