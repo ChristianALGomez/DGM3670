@@ -12,13 +12,39 @@ midpoint formula = (x1 + x2 , y1 + y2)
 
 //select objects
 $sel[] = `sl -ls`;
-$seList[];
+$centerNumber[];
 
 //find center put into an array
-xform -q -bb = $sels;
+$centerNumber = `xform -q -bb`;
 
 //create locator at center of objects
 
 //create locatar at center of each selected objects
 
 // match pivot of locator with selected objects
+
+
+{
+    string $sel[] = `ls -sl`;
+    float $centerNumber[];
+    string $locator[];
+    
+    //float $Y = $
+    
+    //xform -q -bb $seList[0];
+    $centerNumber = `xform -q -bb`;
+    
+    $X = ($centerNumber[0] + $centerNumber[3]) / 2;
+    $Y = ($centerNumber[1] + $centerNumber[4]) / 2;
+    $Z = ($centerNumber[2] + $centerNumber[5]) / 2;
+    //print $centerNumber;
+    $locator = `spaceLocator -p $X $Y $Z`;
+    CenterPivot $locator;
+
+    print $locator;
+    //print $sel;
+    //$sel MatchTransform;
+    //print $X;
+    //print $Y;
+    //print $Z;
+}
