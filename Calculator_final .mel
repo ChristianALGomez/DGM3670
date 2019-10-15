@@ -1,0 +1,168 @@
+global proc float Add(float $nums[])
+{
+	$sum = 0;
+	for($i=0; $i < size($nums); $i++)
+	{
+		$sum = $sum + $nums[$i];
+	}
+	return $sum;
+}
+
+global proc float Sub(float $nums[])
+{
+	$sum = $nums[0];
+	for($i=1; $i < size($nums); $i++)
+	{
+		$sum = $sum - $nums[$i];
+	}
+	return $sum;
+}
+
+global proc float Div(float $nums[])
+{
+	$sum = $nums[0];
+	for($i=1; $i < size($nums); $i++)
+	{
+		$sum = $sum / $nums[$i];
+	}
+	return $sum;
+}
+
+global proc float Tim(float $nums[])
+{
+	$sum = $nums[0];
+	for($i=1; $i < size($nums); $i++)
+	{
+		$sum = $sum * $nums[$i];
+	}
+	return $sum;
+}
+
+global proc float Pow(float $nums[])
+{
+	$sum = $nums[0];
+	for($i=1; $i < size($nums); $i++)
+	{
+		$sum = pow ($sum, $nums[$i]);
+	}
+	return $sum;
+}
+
+/*global proc float Mean(float $nums[])
+{
+	$sum = $nums[0];
+	for($i=1; $i < size($nums); $i++)
+	{
+		$sum = pow ($sum, $nums[$i]);
+	}
+	return $sum;
+}*/
+
+global proc Mode(float $nums[])
+{
+	float $numArray[] = `sort $nums`;
+	
+	float $num = $nums[0];
+	float $mode = $num;
+	
+	float $frequency = 1;
+	float $freqMode = 1;
+	
+		for ($i = 1; $i < size($numArray); $i++)
+		{
+			if ($numArray[$i] == $num)
+			{
+				$frequency++;
+			}
+			
+			else
+			{
+				if ($frequency > $freqMode)
+				{
+					$freqMode = $frequency;
+					$mode = $numArray[$i];
+				}
+				
+				$frequency = 1;
+				$num = $numArray[$i];
+				
+			}
+		}
+		
+		print $mode;
+}
+global proc Med(float $nums[])
+{
+	float $numOrder[] = `sort $nums`;
+	
+	int $size = size($numOrder);
+	float $median;
+	
+	if ($size / 2 !=0)
+	{
+		int $temp = floor($size/2);
+		$median = $numOrder[$temp];
+	}
+	
+	if ($size % 2 ==0)
+	{
+		int $temp = ($size/2);
+		int $medianAlt = ($temp - 1);
+		
+		$median = ($numOrder[$temp] + $numOrder[$medianAlt]);
+		$median = $median/2;
+	}
+	print $median;
+}
+
+global proc float Mean(float $nums[])
+{
+	$sum = 0;
+	int $size = size ($nums);
+	for($i=0; $i < size($nums); $i++)
+	{
+		$sum = ($sum + $nums[$i]);
+	}
+	return $sum / $size;
+}
+
+proc Calculator(float $nums[], float $operations)
+{
+     if ($operations == 0)
+    {
+        print (Add($nums));
+    }
+    
+    else if ($operations == 1)
+    {
+        print (Sub($nums));
+    }
+       else if ($operations == 2)
+    {
+        print (Div($nums));
+    }
+    
+       else if ($operations == 3)
+    {
+        print (Tim($nums));
+    }
+    
+       else if ($operations == 4)
+    {
+        print (Pow($nums));
+    }
+    
+       else if ($operations == 5)
+    {
+        print (Mean($nums));
+    }
+       else if ($operations == 6)
+    {
+        print (Mode($nums));
+    }
+       else if ($operations == 7)
+    {
+        print (Med($nums));
+    }
+}
+Calculator({5, 1, 4}, 6);
