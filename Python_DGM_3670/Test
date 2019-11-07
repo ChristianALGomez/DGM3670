@@ -1,0 +1,36 @@
+import maya.cmds as mc
+
+mc.polySphere()
+mc.polyExtrudeFacet('pSphere1.f[200:219]',
+                    kft=True,
+                    pvx=2,)
+mc.scale(3, 1, 3, 'pSphere1.f[200:219]', absolute=True)
+mc.scale(1, 3, 1, 'pSphere1.f[220:359]',
+         'pSphere1.f[380:399]',
+         absolute=True)
+mc.move(0, 8, 0, 'pSphere1', a=True)
+
+mc.polySphere()
+mc.scale(1.5,1.5,1.5, 'pSphere2', a=True)
+mc.move(0,5.5,0, 'pSphere2', a=True)
+
+mc.polySphere()
+mc.scale(1.9,1.9,1.9, 'pSphere3', a=True)
+mc.move(0,2.1,0, 'pSphere3', a=True)
+
+mc.polyCylinder(axis=[0,0,1], h=1.5, r=.1, rcp=False)
+mc.move(.6,7.5,1.3, 'pCylinder1', a=True)
+mc.rotate(0,23.1,0, 'pCylinder1', a=True)
+
+mc.polyCylinder(h=.3, r=.2, rcp=False)
+mc.move(0.95,7.52,1.98, 'pCylinder2', a=True)
+mc.polyExtrudeFacet('pCylinder2.f[21]')
+mc.scale(.8,1,.8, 'pCylinder2.f[21]', a=True)
+mc.polyExtrudeFacet('pCylinder2.f[21]')
+mc.scale(1,.6,1, 'pCylinder2.f[21]', a=True)
+
+mc.polySphere(axis=[0,0,1])
+mc.delete('pSphere4.f[0:179]','pSphere4.f[360:379]')
+mc.scale(.48,.48,.29, 'pSphere4', a=True)
+mc.move(0,1.9,1.7, 'pSphere4', a=True)
+print 'hello'
