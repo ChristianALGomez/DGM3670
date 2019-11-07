@@ -33,3 +33,5 @@ mc.polySphere(axis=[0,0,1])
 mc.delete('pSphere4.f[0:179]','pSphere4.f[360:379]')
 mc.scale(.48,.48,.29, 'pSphere4', a=True)
 mc.move(0,1.9,1.7, 'pSphere4', a=True)
+
+mc.select(hi=True)
