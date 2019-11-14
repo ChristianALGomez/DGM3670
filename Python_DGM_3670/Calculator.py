@@ -51,19 +51,32 @@ def Mult(values):
     return sum
 Mult([])
 
+def Mean(values):
+    sum = 0
+    size = len(values)
+    for val in values:
+        sum += val
+    return sum / size
+Mean([])
+
+
 def Med(values):
+    // import statistics
     import math
-    numorder = sorted(values)
+    numorder = values
     size = len(numorder)
+    median = 0
 
-    if size / 2 !=0:
-        temp = math.floor(size/2)
+    if size / 2 != 0:
+        temp = int(math.floor(size / 2))
         median = numorder[temp]
+    if size % 2 == 0:
+        temp = size / 2
+        medianalt = temp - 1
 
-    if size % 2 ==0:
-        temp = size/2
-        medianalt = temp-1
-
-        median =(numorder[temp] + numorder[medianalt])
-        median = median/2
+        median = numorder[temp] + numorder[medianalt]
+        median = median / 2
     return median
+
+
+Med([1, 2, 3, 4, 5, 6, 7, 8])
