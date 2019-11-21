@@ -1,5 +1,9 @@
 import maya.cmds as cm
 
+
+
+
+
 def Add(values):
     '''
     Add two or more numbers together and returns result
@@ -27,8 +31,6 @@ def Power(value,power):
     import math
     return math.pow(value,power)
 Power()
-
-
 
 def Sub(values):
     sum = values[0]
@@ -59,24 +61,43 @@ def Mean(values):
     return sum / size
 Mean([])
 
-
-def Med(values):
-    // import statistics
-    import math
-    numorder = values
-    size = len(numorder)
-    median = 0
-
-    if size / 2 != 0:
-        temp = int(math.floor(size / 2))
-        median = numorder[temp]
-    if size % 2 == 0:
-        temp = size / 2
-        medianalt = temp - 1
-
-        median = numorder[temp] + numorder[medianalt]
-        median = median / 2
-    return median
+def Median(data):
+    data = sorted(data)
+    n = len(data)
+    if n == 0:
+        raise StatisticsError("no median for empty data")
+    if n % 2 == 1:
+        return data[n // 2]
+    else:
+        i = n // 2
+        return (data[i - 1] + data[i]) / 2
+median([])
 
 
-Med([1, 2, 3, 4, 5, 6, 7, 8])
+def Mode(data):
+
+    data = iter(data)
+    pairs = Counter(data).most_common(1)
+    try:
+        return pairs[0][0]
+    except IndexError:
+        raise StatisticsError('no mode for empty data')(None)
+
+
+def calculator(values, operations):
+    if operations == 1:
+        Add(values)
+    elif operations == 2:
+        Sub(values)
+    elif operations == 3:
+        Mult(values)
+    elif operations == 4:
+        Div(values)
+    elif operations == 5:
+        Power(values)
+    elif operations == 6:
+        Mean(values)
+    elif operations == 7:
+        Median(values)
+    elif operations == 8:
+        Mode(values)
