@@ -1,0 +1,27 @@
+import maya.cmds as cm
+
+def cenGS(op):
+        sels = [cm.ls]
+        bb = []
+        loc = []
+        
+        if op == 0:
+            if len(sels) > 1:
+              dups = cm.duplicate([sels])
+              dups = cm.polyUnite([dups])
+              cm.delete(dups, ch = True)
+              
+              bb = cm.xform( [dups[0]], bb = True)
+              cm.delete()
+              
+              x = ((bb[0] + bb[3]) / 2)
+              y = ((bb[1] + bb[4]) / 2)
+              z = ((bb[2] + bb[5]) / 2)
+              loc = cm.spaceLocator( p =(x, y, z) )
+            
+            elif len(sels) > 1:
+                bb = cm.xform( [sels], bbi = True)
+                loc = cm.spaceLocator( p =(0, 0, 0) )
+                cm.matchTransform('loc' , 'sels')
+    
+cenGS(0)

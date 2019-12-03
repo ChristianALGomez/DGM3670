@@ -1,0 +1,58 @@
+
+proc float Add(float $nums[])
+{
+	$sum = 0;
+	for($i=0; $i < size($nums); $i++)
+	{
+		$sum = $sum + $nums[$i];
+	}
+	return $sum;
+	//print ($sum/2);
+}
+
+{
+    
+    float $X;
+    float $Y;
+    float $Z;
+	string $sels[] = `ls -sl`;
+	float $newarrayX[];
+	float $newarrayY[];
+	float $newarrayZ[];
+	string $Loc[];
+	
+		if(size($sels) > 1)
+	{
+	    for($i=0; $i < size($sels); $i++)
+    	{
+    		$newarrayX = `getAttr $sels.translateX`;
+    		$newarrayY = `getAttr $sels.translateY`;
+    		$newarrayZ = `getAttr $sels.translateZ`;
+    		//$X = $X + $sels[$i];
+    		//return $X;
+    	}
+	$X = (Add($newarrayX) / size($sels));
+	$Y = (Add($newarrayY) / size($sels));
+	$Z = (Add($newarrayZ) / size($sels));
+	print $X;
+	$Loc = `spaceLocator -p $X $Y $Z`;
+	CenterPivot;
+	//print $sels;
+	}
+	
+	else
+    	{
+    	float $X = `getAttr $sels.translateX`;
+    	float $Y = `getAttr $sels.translateY`;
+    	float $Z = `getAttr $sels.translateZ`;
+    	
+    	$Loc = `spaceLocator -p 0 0 0`;
+    	matchTransform $Loc $sels;
+    	//DeleteHistory;
+    	//print $Loc;
+    	//print $sels;
+    	}
+	
+	
+
+}

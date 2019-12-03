@@ -1,0 +1,23 @@
+import maya.cmds as cm
+
+
+        
+def Random():
+    
+    
+    
+    sels =[cm.select]
+    seList = []
+    obj = 0
+    objects = 0
+    i = len(sels)
+    if i > 0:
+        seList[len(seList)] = sels
+        cm.
+        for
+            
+for val in values:
+Random()
+    
+
+ 

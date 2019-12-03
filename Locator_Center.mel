@@ -1,0 +1,47 @@
+proc cenGS(float $op)
+{
+	string $sels[] = `ls -sl`;
+	float $bb[];
+	float $x;
+	string $loc[];
+	string $re;
+	if ($op == 0)
+	{
+		if(size($sels) > 1)
+		{
+			string $dups[] = `duplicate $sels`;
+			$dups = `polyUnite $dups`;
+			delete -ch $dups;
+		
+			$bb = `xform -q -boundingBox $dups[0]`;
+			delete;
+		
+			float $x = (($bb[0] + $bb[3]) / 2);
+			float $y = (($bb[1] + $bb[4]) / 2);
+			float $z = (($bb[2] + $bb[5]) / 2);
+			$loc = `spaceLocator -p $x $y $z`;
+			CenterPivot ($loc);
+		}
+			
+		
+		
+		else if(size($sels) == 1)
+		{
+			$bb = `xform -q -bbi $sels`;
+				$loc = `spaceLocator -p 0 0 0`;
+				matchTransform $loc $sels;
+		}
+	}
+	
+	else if ($op == 1)
+	{
+		    for ($i=0; $i < size($sels); $i++)
+    {
+	    $loc = `spaceLocator -p 0 0 0`;
+	    matchTransform $loc $sels[$i];
+	}
+	}
+}
+// 0 = locator in a single object or center of group
+// 1 = center of multiple ovjects
+cenGS(1);
